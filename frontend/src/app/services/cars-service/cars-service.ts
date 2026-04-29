@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PaginatedResponseDto } from '../../model/DTO/paginated-response-dto';
-import { CarDetailDto } from '../../model/DTO/car-detail-dto';
-import { CreateCarDto } from '../../model/DTO/create-car-dto';
-import { CarBrandDto } from '../../model/DTO/car-brand-dto';
 import { Observable } from 'rxjs';
-import { CarModelDto } from '../../model/DTO/car-model-dto';
-import { UploadedCarDocumentResponseDto } from '../../model/DTO/uploaded-car-document-response-dto';
+import { PaginatedResponseDto } from '../../../model/DTO/paginated-response-dto';
+import { CarDetailDto } from '../../../model/DTO/car-detail-dto';
+import { CreateCarDto } from '../../../model/DTO/create-car-dto';
+import { CarBrandDto } from '../../../model/DTO/car-brand-dto';
+import { CarModelDto } from '../../../model/DTO/car-model-dto';
+import { UploadedCarDocumentResponseDto } from '../../../model/DTO/uploaded-car-document-response-dto';
 
 
 @Injectable({

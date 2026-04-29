@@ -3,6 +3,7 @@ import { Home } from "./pages/home/home";
 import { Details } from "./pages/details/details";
 import { Form } from "./pages/form/form";
 import { NotFound } from "./pages/not-found/not-found";
+import { Login } from "./pages/login/login";
 
 export const routes: Routes = [
     {
@@ -10,16 +11,20 @@ export const routes: Routes = [
         component: Home
     },
     {
-        path:'details/:id',
+        path: 'details/:id',
         component: Details
     },
     {
-        path:'form',
+        path: 'form',
         component: Form
     },
     {
-        path:'form/:id',
+        path: 'form/:id',
         component: Form
+    },
+    {
+        path: 'login',
+        component: Login
     },
     {
         path:'**',

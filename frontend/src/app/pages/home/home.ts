@@ -1,6 +1,6 @@
 import { Component, OnInit, Signal, WritableSignal, computed, signal } from '@angular/core';
 import { PaginatedResponseDto } from '../../../model/DTO/paginated-response-dto';
-import { CarsService } from '../../../services/cars-service/cars-service';
+import { CarsService } from '../../services/cars-service/cars-service';
 import { RouterLink } from "@angular/router";
 import { Dialog } from '../../shared/dialog/dialog';
 import { CarSummaryDto } from '../../../model/DTO/car-summary-dto';

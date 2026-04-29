@@ -1,6 +1,6 @@
 import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { CarDetailDto } from '../../../model/DTO/car-detail-dto';
-import { CarsService } from '../../../services/cars-service/cars-service';
+import { CarsService } from '../../services/cars-service/cars-service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { Dialog } from '../../shared/dialog/dialog';

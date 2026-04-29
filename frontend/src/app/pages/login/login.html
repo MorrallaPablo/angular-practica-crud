@@ -1,0 +1,23 @@
+<main>
+    <h1>Login</h1>
+
+    <form [formGroup]="form" (submit)="onFormSubmit()">
+        <input formControlName="email" type="email" required>
+        <input formControlName="password" type="password" required>
+        <button type="submit">Login</button>
+
+        @if (submitting()) {
+            <p>Submitting...</p>
+        }
+        @else if (errorMessage()) {
+            <p class="error">{{errorMessage()}}</p>
+        }
+        @else if (succesMessage()) {
+            <p class="success">{{succesMessage()}}</p>
+        }
+    </form>
+
+    @if (authToken()) {
+        <h2>Your token: {{authToken()}}</h2>
+    }
+</main>
