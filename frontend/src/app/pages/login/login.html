@@ -2,8 +2,24 @@
     <h1>Login</h1>
 
     <form [formGroup]="form" (submit)="onFormSubmit()">
-        <input formControlName="email" type="email" required>
-        <input formControlName="password" type="password" required>
+        <label>Email
+            <input 
+                formControlName="email" 
+                type="email" 
+                placeholder="Email"
+                required
+            >
+        </label>
+
+        <label>Password
+            <input 
+                formControlName="password" 
+                type="password" 
+                placeholder="Password"
+                required
+            >
+        </label>
+        
         <button type="submit">Login</button>
 
         @if (submitting()) {
