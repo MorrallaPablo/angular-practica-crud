@@ -237,7 +237,7 @@ input[type=checkbox] {
     height: 2em;
 }
 
-form button, form a.button {
+form button, form a.button, main > button {
     display: block;
     width: 100%;
     font-size: 1.05em;
