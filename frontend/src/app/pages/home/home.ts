@@ -6,6 +6,7 @@ import { Dialog } from '../../shared/dialog/dialog';
 import { CarSummaryDto } from '../../../model/DTO/car-summary-dto';
 import { Fab } from '../../shared/fab/fab';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from '../../services/auth-service/auth-service';
 
 @Component({
   selector: 'app-home',
@@ -31,7 +32,10 @@ export class Home implements OnInit {
   isDialogOpen = signal(false);
   carToDelete = signal<CarSummaryDto | undefined>(undefined);
 
-  constructor (private carsService: CarsService) {}
+  constructor (
+    private carsService: CarsService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.getCars(1);
@@ -122,5 +126,9 @@ export class Home implements OnInit {
     });
 
     this.isDialogOpen.set(false);
+  }
+
+  onLogout(){
+    this.authService.removeToken();
   }
 }

@@ -4,30 +4,25 @@ import { Details } from "./pages/details/details";
 import { Form } from "./pages/form/form";
 import { NotFound } from "./pages/not-found/not-found";
 import { Login } from "./pages/login/login";
+import { authGuard } from "./auth-guard";
 
 export const routes: Routes = [
     {
         path: '',
-        component: Home
+        canActivateChild: [authGuard],
+        children: [
+            {path: '', component: Home, pathMatch: 'full'},
+            {path: 'details/:id', component: Details},
+            {path: 'form/:id', component: Form},
+            {path: 'form', component: Form}
+        ]
     },
     {
-        path: 'details/:id',
-        component: Details
-    },
-    {
-        path: 'form',
-        component: Form
-    },
-    {
-        path: 'form/:id',
-        component: Form
-    },
-    {
-        path: 'login',
+        path: 'login', 
         component: Login
     },
     {
-        path:'**',
+        path:'**', 
         component: NotFound
     }
 ]
