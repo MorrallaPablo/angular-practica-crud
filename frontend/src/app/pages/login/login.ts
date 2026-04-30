@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth-service/auth-service';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,8 @@ export class Login {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ){
     this.form = fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -39,6 +40,8 @@ export class Login {
         this.submitting.set(false);
         this.errorMessage.set(null);
         this.succesMessage.set('Login successfull!');
+
+        this.router.navigate(['/']);
       },
 
       error: (error) => {

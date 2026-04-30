@@ -1,7 +1,7 @@
 import { Component, OnInit, Signal, WritableSignal, computed, signal } from '@angular/core';
 import { PaginatedResponseDto } from '../../../model/DTO/paginated-response-dto';
 import { CarsService } from '../../services/cars-service/cars-service';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { Dialog } from '../../shared/dialog/dialog';
 import { CarSummaryDto } from '../../../model/DTO/car-summary-dto';
 import { Fab } from '../../shared/fab/fab';
@@ -34,7 +34,8 @@ export class Home implements OnInit {
 
   constructor (
     private carsService: CarsService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -130,5 +131,6 @@ export class Home implements OnInit {
 
   onLogout(){
     this.authService.removeToken();
+    this.router.navigate(['/login']);
   }
 }
