@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CarsService } from '../services/cars-service/cars-service';
+import { CarsService } from './services/cars-service/cars-service';
 
 @Component({
   selector: 'app-root',

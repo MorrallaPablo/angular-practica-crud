@@ -1,4 +1,7 @@
+import { HttpInterceptorFn } from "@angular/common/http";
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
+import { AuthService } from "./app/services/auth-service/auth-service";
+import { inject } from "@angular/core";
 
 export function regex (regex: RegExp): ValidatorFn {
     return Validators.pattern(regex);
@@ -23,3 +26,18 @@ export const registrationDateValidator: ValidatorFn = (
     ? null
     : { registrationDateBeforeManufatureYear: true };
 };
+
+export const authInterceptor: HttpInterceptorFn = (req, next) => {
+  const authService = inject(AuthService);
+  const token = authService.getToken();
+
+  if (token) {
+    req = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+  }
+
+  return next(req);
+}

@@ -1,0 +1,37 @@
+<main>
+    <h1>Login</h1>
+
+    <form [formGroup]="form" (submit)="onFormSubmit()">
+        <label>Email
+            <input 
+                formControlName="email" 
+                type="email" 
+                placeholder="Email"
+                required
+            >
+        </label>
+
+        <label>Password
+            <input 
+                formControlName="password" 
+                type="password" 
+                placeholder="Password"
+                required
+            >
+        </label>
+        
+        <button type="submit">Login</button>
+
+        @if (submitting()) {
+            <p>Submitting...</p>
+        }
+        @else if (errorMessage()) {
+            <p class="error">{{errorMessage()}}</p>
+        }
+        @else if (succesMessage()) {
+            <p class="success">{{succesMessage()}}</p>
+        }
+    </form>
+
+    <button routerLink="/">Go to Car List</button>
+</main>
